@@ -22,9 +22,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.539144, 0)
 script = ExtResource("2_g2els")
 
 [node name="flashlight" type="SpotLight3D" parent="head"]
+light_energy = 3.0
 shadow_enabled = true
 spot_range = 15.0
-spot_angle = 25.0
+spot_angle = 30.0
 script = ExtResource("3_qhqgy")
 
 [node name="Camera3D" type="Camera3D" parent="head"]

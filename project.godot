@@ -12,8 +12,12 @@ config_version=5
 
 config/name="h1de"
 run/main_scene="uid://d0wi6kxqaxj10"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
+
+[dotnet]
+
+project/assembly_name="h1de"
 
 [input]
 

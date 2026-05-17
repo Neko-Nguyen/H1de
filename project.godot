@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="h1de"
-run/main_scene="uid://d0wi6kxqaxj10"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://dpfrfhk5yhie1"
+config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [dotnet]

@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://dpfrfhk5yhie1"]
+
+[ext_resource type="PackedScene" uid="uid://c5mjpcq8c5t7j" path="res://scenes/grid_map.tscn" id="1_rerym"]
+[ext_resource type="Material" uid="uid://dlva5d6m046d1" path="res://materials/floor.tres" id="2_uijja"]
+[ext_resource type="PackedScene" uid="uid://boxb75dgqjvg" path="res://scenes/player.tscn" id="3_5nv5w"]
+[ext_resource type="PackedScene" uid="uid://c0quuu3b65tyg" path="res://scenes/ui.tscn" id="4_uijja"]
+[ext_resource type="PackedScene" uid="uid://cwtgof8s6eha8" path="res://scenes/light.tscn" id="5_5nv5w"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uijja"]
+sky_top_color = Color(0.146081, 0.298725, 0.470111, 1)
+sky_horizon_color = Color(0.451702, 0.473375, 0.491279, 1)
+ground_bottom_color = Color(0.214422, 0.14847, 0.0486994, 1)
+ground_horizon_color = Color(0.451702, 0.473375, 0.491279, 1)
+
+[sub_resource type="Sky" id="Sky_u52ul"]
+sky_material = SubResource("ProceduralSkyMaterial_uijja")
+
+[sub_resource type="Environment" id="Environment_5nv5w"]
+background_mode = 1
+sky = SubResource("Sky_u52ul")
+tonemap_mode = 3
+glow_enabled = true
+volumetric_fog_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_omks2"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_wwd78"]
+
+[node name="level0" type="Node3D"]
+
+[node name="UI" parent="." instance=ExtResource("4_uijja")]
+
+[node name="Player" parent="." instance=ExtResource("3_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.36335, 1.62873, 16.3344)
+
+[node name="lighting" type="Node3D" parent="."]
+
+[node name="light" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.91466, 5.48358, 15.6671)
+
+[node name="light2" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.54895, 5.46297, -2.05718)
+
+[node name="light3" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.451, 5.4335, 7.64575)
+
+[node name="light4" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1091, 5.32297, 18.7816)
+
+[node name="light5" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.5575, 5.55224, -16.2583)
+
+[node name="light6" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.549, 5.19627, -21.04)
+
+[node name="light7" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.549, 5.30499, -10.6181)
+
+[node name="light8" parent="lighting" instance=ExtResource("5_5nv5w")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.451, 5.31593, -6.57645)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lighting"]
+transform = Transform3D(0.566406, 0.684035, -0.459652, 0, 0.557745, 0.830012, 0.824126, -0.470124, 0.31591, -7.72365, 13.9189, 3.89719)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="lighting"]
+environment = SubResource("Environment_5nv5w")
+
+[node name="map" type="Node3D" parent="."]
+
+[node name="floor" type="StaticBody3D" parent="map"]
+transform = Transform3D(68.87, 0, 0, 0, 1, 0, 0, 0, 53.68, 0, 0, -1.14704)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map/floor"]
+shape = SubResource("BoxShape3D_omks2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="map/floor"]
+material_override = ExtResource("2_uijja")
+mesh = SubResource("BoxMesh_wwd78")
+
+[node name="floor2" type="StaticBody3D" parent="map"]
+transform = Transform3D(68.87, 0, 0, 0, 1, 0, 0, 0, 53.68, 0, 5.83947, -1.14704)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="map/floor2"]
+shape = SubResource("BoxShape3D_omks2")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="map/floor2"]
+material_override = ExtResource("2_uijja")
+mesh = SubResource("BoxMesh_wwd78")
+
+[node name="grid_map" parent="map" instance=ExtResource("1_rerym")]
+transform = Transform3D(-2.18557e-07, 0, 5, 0, 5, 0, -5, 0, -2.18557e-07, 0.697952, 0.520564, 0.483759)

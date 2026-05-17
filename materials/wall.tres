@@ -1,7 +1,7 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bjkym1ss7hp71"]
 
-[ext_resource type="Texture2D" uid="uid://cp5q6cf5e0mq0" path="res://materials/Old_Wood_sqeqmplwu_4k/Old_Wood_sqeqmplwu_4k_Albedo.jpg" id="1_xvgr5"]
+[ext_resource type="Texture2D" uid="uid://cp5q6cf5e0mq0" path="res://textures/Old_Wood_sqeqmplwu_4k/Old_Wood_sqeqmplwu_4k_Albedo.jpg" id="1_xvgr5"]
 
 [resource]
-albedo_color = Color(0.8983782, 0.00031600244, 0.1377672, 1)
+albedo_color = Color(0.898378, 0.000316002, 0.137767, 1)
 albedo_texture = ExtResource("1_xvgr5")
